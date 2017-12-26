@@ -5,7 +5,7 @@ var app = express()
 
 app.use(bodyParser.json())
 
-app.set('port', (process.env.PORT || 80))
+app.set('port', (process.env.PORT || 443))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
@@ -22,8 +22,8 @@ app.post('/webhook', (req, res) => {
   res.sendStatus(200)
 })
 
-app.post('/test', (req, res) => {
-  res.sendStatus(200)
+app.get('/hello', (req, res) => {
+  res.send('Hello')
 })
 
 function sendText (sender, text) {
